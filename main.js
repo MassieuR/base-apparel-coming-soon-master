@@ -12,5 +12,4 @@ const checkEmail = (e) => {
     }
 }
 
-
 form.addEventListener('submit', checkEmail)
