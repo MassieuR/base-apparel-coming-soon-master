@@ -14,7 +14,6 @@
     padding: 0;
     font-size: 16px;
     font-family: 'Josefin Sans';
-    overflow: hidden;
 }
 
 body {
@@ -22,6 +21,7 @@ body {
     background: var(--mobile-bg);
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 
 .inactive {
@@ -38,12 +38,16 @@ body {
 }
 
 .img-container {
-    width: 100vw;
+    width: 100%;
+    max-height: 30vh;
+    overflow: hidden;
 }
 
 .hero-mobile {
+    position: relative;
+    top: 22px;
     width: 100%;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .info-container {
@@ -137,24 +141,25 @@ form {
 
 @media (min-width: 1024px) {
     body {
-        display: grid;
+        /* display: grid;
         grid-template-columns: 65vw 35vw;
-        grid-template-rows: 10vh 90vh;
+        grid-template-rows: 10vh 90vh; */
         background: url(/images/bg-pattern-desktop.svg);
-        background-size: 100vw;
-        overflow: hidden;
+        background-size: calc(100% - 10vw);
+        background-repeat:repeat-y;
     }
 
     #logo {
         width: 150px;
-        margin: 5vh 0 0 10vw;
+        margin: 10vh 0 0 10vw;
     }
     
     .img-container {
-        grid-column: 2;
-        grid-row: 1 / span 2;
-        width: 40vw;
-        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 35vw;
+        overflow: visible;
     }
 
     .hero-mobile {
@@ -162,54 +167,54 @@ form {
     }
 
     .hero-desktop {
-        display: block;
+        display: inline-block;
         object-fit: cover;
         width: 100%;
+        min-height: 100%;
+        height: 100vh;
     }
 
     .info-container {
+        margin-top: 12vh;
         margin-left: 10vw;
-        grid-column: 1 / 2;
-        grid-row: 2;
-        width: calc(100% - 20vw);
+        width: calc(100% - 65vw);
         text-align: left;
     }
 
     .info-container h1, .info-container h1 span {
-        margin-top: 12vh;
-        font-size: 60px;
+        font-size: 50px;
     }
 
     .info-container p{
         margin: 5vh 0;
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 20px;
+        line-height: 25px;
     }
 
     form {
         height: 60px;
-        width: 80%;
+        width: 100%;
     }
 
     #email {
         box-sizing: border-box;
-        width: calc(100% - 40px);
+        width: calc(100% - 80px);
         height: 60px;
-        padding: 25px;
+        padding: 25px 100px 25px 40px;
         font-size: 16px;
     }
 
     #submit-email {
         position: absolute;
-        right: calc(35vw + 19vw);
-        width: 80px;
+        right: calc(100% - 44vw);
+        width: 100px;
         height: 60px;
     }
 
     .error-sign {
         z-index: 3;
         position: absolute;
-        right: calc(35vw + 24vw);
+        right: calc(56vw + 110px);
         width: 15px;
     }
     
